@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>椥辻ベーカリー — YUKI HATTORI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../work.css" />
+</head>
+<body class="detail-page">
+
+  <!-- プログレスバー -->
+  <div class="detail-progress" id="detailProgress"></div>
+
+  <!-- 戻るリンク -->
+  <a href="../index.html#works" class="detail-back">
+    <span class="detail-back__arrow">←</span>
+    <span>Back to Works</span>
+  </a>
+
+  <!-- ============================================
+       SPLIT LAYOUT
+       左: 固定パネル / 右: スクロールパネル
+       ============================================ -->
+  <div class="split-wrap">
+
+    <!-- ===== LEFT PANEL (固定) ===== -->
+    <aside class="split-left" id="splitLeft">
+
+      <!-- 背景カラー（アクセントカラーがじわっと出る） -->
+      <div class="split-left__color-bg" id="colorBg"
+           style="background-color: #C86428;"></div>
+
+      <!-- 大きい作品番号 -->
+      <div class="split-left__index">03</div>
+
+      <!-- セクションごとに切り替わる情報 -->
+      <div class="split-info" id="splitInfo">
+        <p class="split-info__label" id="infoLabel">Overview</p>
+        <h2 class="split-info__heading" id="infoHeading">Little Stone<br>Bakery</h2>
+        <p class="split-info__body" id="infoBody">
+          地元・椥辻の温もりを伝えるベーカリーサイト。Vue.js による SPA 構成。
+        </p>
+
+        <!-- メタ情報（最初のパネルのみ表示） -->
+        <dl class="split-meta" id="splitMeta">
+          <div class="split-meta__item">
+            <dt class="split-meta__key">Year</dt>
+            <dd class="split-meta__val">2026</dd>
+          </div>
+          <div class="split-meta__item">
+            <dt class="split-meta__key">Role</dt>
+            <dd class="split-meta__val">Design / Vue.js / SPA</dd>
+          </div>
+          <div class="split-meta__item">
+            <dt class="split-meta__key">Tech</dt>
+            <dd class="split-meta__val">Vue.js / Vite / CSS</dd>
+          </div>
+          <div class="split-meta__item">
+            <dt class="split-meta__key">Color</dt>
+            <dd class="split-meta__val">maincolor #C86428 テラコッタ</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- セクションドット -->
+      <div class="split-dots" id="splitDots">
+        <!-- JSで生成 -->
+      </div>
+    </aside>
+
+    <!-- ===== RIGHT PANEL (スクロール) ===== -->
+    <div class="split-right" id="splitRight">
+
+      <!-- Panel 0: メインビジュアル -->
+      <div class="split-panel"
+           data-index="0"
+           data-label="Overview"
+           data-heading="Little Stone<br>Bakery"
+           data-body="「前日予約」で朝の混雑を解消し、店舗の回転率を最大化するベーカリーサイト。"
+           data-show-meta="true">
+        <div style="position:absolute; inset:0; background-color:#EDD5B0;"></div>
+        <img class="split-panel__img" src="../images/work03-top.png" alt="Main Visual">
+      </div>
+
+      <!-- Panel 1: デザインビュー -->
+      <div class="split-panel"
+           data-index="1"
+           data-label="Design"
+           data-heading="温もりを伝える<br>ビジュアル設計"
+           data-body="素材感と温かみのある色彩で、地元のパン屋さんらしい親しみやすさを表現しました。">
+        <div style="position:absolute; inset:0; background-color:#F0DFC8;"></div>
+        <img class="split-panel__img" src="../images/work03-design.png" alt="Desktop View">
+      </div>
+
+      <!-- Panel 2: アプローチ -->
+      <div class="split-panel"
+           data-index="2"
+           data-label="Approach"
+           data-heading="スマートな<br>予約システム"
+           data-body="出勤前の数分で予約を完結できるUXを追求。行列による機会損失を防ぎ、店舗利益に貢献できるようなシステムの設計をしました。">
+        <div style="position:absolute; inset:0; background-color:#FDF6EE;"></div>
+        <img class="split-panel__img" src="../images/work03-ap.png" alt="Approach">
+      </div>
+
+    </div><!-- /split-right -->
+  </div><!-- /split-wrap -->
+
+  <!-- ===== NEXT WORK ===== -->
+  <a href="work01.html" class="detail-next">
+    <div class="detail-next__content">
+      <span class="detail-next__label">Next Work</span>
+      <p class="detail-next__title">Kyoto<br>Fumin Bank</p>
+    </div>
+    <span class="detail-next__arrow">→</span>
+  </a>
+
+  <script src="../work.js"></script>
+</body>
+</html>
