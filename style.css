@@ -332,14 +332,11 @@ img {
   border-top: 1px solid var(--color-border);
 }
 
-/* ホバー中の非アクティブ項目を薄くする */
 .works.is-hovered .works-item {
-  opacity: 0.35;
   border-color: rgba(255,255,255,0.15);
 }
 
 .works.is-hovered .works-item.is-active {
-  opacity: 1;
   border-color: rgba(255,255,255,0.35);
 }
 
@@ -395,7 +392,14 @@ img {
   transition: transform 0.35s ease, color 0.4s ease;
 }
 
-/* ホバー中: アクティブ項目を白テキストに */
+/* ホバー中: 全項目をホワイト系に（非アクティブはくすんだ白） */
+.works.is-hovered .works-item .works-num      { color: rgba(255,255,255,0.3); }
+.works.is-hovered .works-item .works-title-en  { color: rgba(255,255,255,0.35); }
+.works.is-hovered .works-item .works-title-ja  { color: rgba(255,255,255,0.25); }
+.works.is-hovered .works-item .works-tags      { color: rgba(255,255,255,0.25); }
+.works.is-hovered .works-item .works-arrow     { color: rgba(255,255,255,0.2); }
+
+/* アクティブ項目を白テキストに（上記より高い詳細度で上書き） */
 .works.is-hovered .works-item.is-active .works-num { color: rgba(255,255,255,0.5); }
 .works.is-hovered .works-item.is-active .works-title-en {
   color: #FFFFFF;
@@ -426,7 +430,7 @@ img {
 .section-title { transition: color 0.4s ease; }
 .section-number { transition: color 0.4s ease; }
 .section-header { transition: border-color 0.4s ease; }
-.works-item { transition: opacity 0.4s ease, border-color 0.4s ease; }
+.works-item { transition: border-color 0.4s ease; }
 
 /* ===========================================
    ABOUT & SKILLS
@@ -611,6 +615,70 @@ img {
   font-family: var(--font-ja);
   font-size: 0.9rem;
   color: var(--color-sub);
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-sub);
+}
+
+.form-input,
+.form-textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.6rem 0;
+  font-family: var(--font-ja);
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  outline: none;
+  width: 100%;
+  transition: border-color var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-bottom-color: var(--color-ink);
+}
+
+.form-textarea {
+  resize: none;
+  height: 120px;
+}
+
+.form-submit {
+  align-self: flex-start;
+  background: var(--color-ink);
+  color: var(--color-white);
+  border: none;
+  padding: 0.9rem 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.form-submit:hover {
+  opacity: 0.6;
 }
 
 .contact-mail {

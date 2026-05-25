@@ -199,12 +199,61 @@ const initCursor = () => {
 };
 
 // ===========================================
-// 7. 初期化
+// 7. ライトボックス
+// ===========================================
+const initLightbox = () => {
+  const images = document.querySelectorAll('.split-panel__img');
+  if (images.length === 0) return;
+
+  // モーダルDOMを動的生成
+  const lb = document.createElement('div');
+  lb.className = 'lb';
+  lb.setAttribute('aria-hidden', 'true');
+  lb.innerHTML = `
+    <div class="lb__overlay"></div>
+    <img class="lb__img" src="" alt="" />
+    <button class="lb__close" aria-label="閉じる">×</button>
+  `;
+  document.body.appendChild(lb);
+
+  const lbImg     = lb.querySelector('.lb__img');
+  const lbClose   = lb.querySelector('.lb__close');
+  const lbOverlay = lb.querySelector('.lb__overlay');
+
+  const open = (src, alt) => {
+    lbImg.src = src;
+    lbImg.alt = alt;
+    lb.setAttribute('aria-hidden', 'false');
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; }, 420);
+  };
+
+  images.forEach((img) => {
+    img.addEventListener('click', () => open(img.src, img.alt));
+  });
+
+  lbClose.addEventListener('click', close);
+  lbOverlay.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lb.classList.contains('is-open')) close();
+  });
+};
+
+// ===========================================
+// 8. 初期化
 // ===========================================
 const init = () => {
   buildDots();
   initPanelObserver();
   initProgress();
+  initLightbox();
   initCursor();
 
   // 最初のパネルの情報を即時反映

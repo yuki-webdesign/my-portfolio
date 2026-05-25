@@ -109,7 +109,6 @@
           2025年 ユニチカ株式会社退社<br>
         </p>
         <div class="profile-links">
-          <a href="mailto:yuki.hattori12@gmail.com" class="link-item">yuki.hattori12@gmail.com</a>
           <a href="https://github.com/" target="_blank" class="link-item">GitHub →</a>
         </div>
       </div>
@@ -185,7 +184,21 @@
     </div>
     <div class="contact-inner">
       <p class="contact-lead">お気軽にご連絡ください。</p>
-      <a href="mailto:yuki.hattori12@gmail.com" class="contact-mail">yuki.hattori12@gmail.com</a>
+      <form class="contact-form" action="https://formspree.io/f/mvzyajwz" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" required></textarea>
+        </div>
+        <button class="form-submit" type="submit">Send →</button>
+      </form>
     </div>
   </section>
 
