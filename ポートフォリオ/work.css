@@ -1,0 +1,491 @@
+/* ===========================================
+   WORK DETAIL — work-detail.css
+   Layout: Split Scroll
+   Left: Fixed panel (info)
+   Right: Scrollable panels (images)
+   =========================================== */
+
+/* ---- Reset for detail page ---- */
+.detail-page {
+  overflow-x: hidden;
+}
+
+/* ---- Back link (fixed top-left) ---- */
+.detail-back {
+  position: fixed;
+  top: 2.2rem;
+  left: 3rem;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sub);
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.detail-back:hover {
+  color: var(--color-ink);
+  gap: 0.9rem;
+}
+
+.detail-back__arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.detail-back:hover .detail-back__arrow {
+  transform: translateX(-4px);
+}
+
+/* ---- Progress bar ---- */
+.detail-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--color-ink);
+  z-index: 300;
+  transition: width 0.1s linear;
+}
+
+/* ===========================================
+   SPLIT LAYOUT
+   =========================================== */
+.split-wrap {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---- LEFT: Fixed Info Panel ---- */
+.split-left {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 42%;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4rem 3.5rem 4rem 3rem;
+  background: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* 背景：現在の作品カラーがじわっと滲む */
+.split-left__color-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease, background-color 0.8s ease;
+  pointer-events: none;
+}
+
+.split-left__color-bg.is-visible {
+  opacity: 0.06;
+}
+
+/* 作品番号 */
+.split-left__index {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 10vw, 9rem);
+  font-weight: 300;
+  line-height: 0.85;
+  color: var(--color-border);
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* セクション情報ブロック（切り替わる部分） */
+.split-info {
+  position: relative;
+  z-index: 1;
+}
+
+.split-info__label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-sub);
+  margin-bottom: 1rem;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.split-info__label.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.split-info__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 300;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: 1.4rem;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease 0.08s, transform 0.5s ease 0.08s;
+}
+
+.split-info__heading.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.split-info__body {
+  font-family: var(--font-ja);
+  font-size: 0.83rem;
+  line-height: 1.9;
+  color: var(--color-body);
+  max-width: 30ch;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+}
+
+.split-info__body.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* メタ情報 */
+.split-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.5s ease 0.22s, transform 0.5s ease 0.22s;
+}
+
+.split-meta.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.split-meta__item {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.split-meta__key {
+  color: var(--color-sub);
+  min-width: 4rem;
+}
+
+.split-meta__val {
+  color: var(--color-ink);
+}
+
+/* セクションドット（右下） */
+.split-dots {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.split-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-border);
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.split-dot.is-active {
+  background: var(--color-ink);
+  transform: scale(1.5);
+}
+
+/* ---- RIGHT: Scrollable Panels ---- */
+.split-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.split-panel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 画像 */
+.split-panel__img {
+  width: 75%;
+  max-height: 100%;
+  object-fit: contain;
+  position: absolute;
+  z-index: 1;
+}
+
+
+/* テクニカルリスト（白背景パネル） */
+.split-panel--list {
+  background: #F5F4F2;
+  align-items: flex-start;
+  padding: 5rem 4rem;
+}
+
+.split-panel__list-title {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-sub);
+  margin-bottom: 2.5rem;
+}
+
+.split-tech-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: 420px;
+}
+
+.split-tech-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.split-tech-list li:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.split-tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-sub);
+}
+
+.split-tech-desc {
+  font-family: var(--font-ja);
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--color-body);
+}
+
+/* ===========================================
+   NEXT WORK
+   =========================================== */
+.detail-next {
+  background: var(--color-black);
+  padding: 5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.detail-next__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  transition: opacity 0.5s ease;
+}
+
+.detail-next:hover .detail-next__bg {
+  opacity: 0.25;
+}
+
+.detail-next__label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.detail-next__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.detail-next__arrow {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: rgba(255,255,255,0.4);
+  transition: transform 0.4s ease, color 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.detail-next:hover .detail-next__arrow {
+  transform: translateX(12px);
+  color: #FFFFFF;
+}
+
+.detail-next__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 900px) {
+  .split-wrap {
+    flex-direction: column;
+  }
+
+  .split-left {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: unset;
+    padding: 7rem 1.5rem 3rem;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .split-left__index {
+    font-size: 5rem;
+    top: 2rem;
+    right: 1.5rem;
+  }
+
+  .split-dots {
+    display: none;
+  }
+
+  .split-right {
+    width: 100%;
+  }
+
+  .split-panel {
+    height: 70vw;
+    min-height: 280px;
+  }
+
+  .split-panel--list {
+    height: auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .detail-back {
+    left: 1.5rem;
+  }
+
+  .detail-next {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+  }
+}
+/* ===========================================
+   LIGHTBOX
+   =========================================== */
+.split-panel__img {
+  cursor: zoom-in;
+}
+
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.lb.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lb__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.95);
+}
+
+.lb__img {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  display: block;
+  transform: scale(0.94);
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.lb.is-open .lb__img {
+  transform: scale(1);
+}
+
+.lb__close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 2;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.lb__close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}

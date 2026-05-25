@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>アリス展 — YUKI HATTORI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../work.css" />
+</head>
+<body class="detail-page">
+
+  <!-- プログレスバー -->
+  <div class="detail-progress" id="detailProgress"></div>
+
+  <!-- 戻るリンク -->
+  <a href="../index.html#works" class="detail-back">
+    <span class="detail-back__arrow">←</span>
+    <span>Back to Works</span>
+  </a>
+
+  <!-- ============================================
+       SPLIT LAYOUT
+       左: 固定パネル / 右: スクロールパネル
+       ============================================ -->
+  <div class="split-wrap">
+
+    <!-- ===== LEFT PANEL (固定) ===== -->
+    <aside class="split-left" id="splitLeft">
+
+      <!-- 背景カラー（アクセントカラーがじわっと出る） -->
+      <div class="split-left__color-bg" id="colorBg"
+           style="background-color: #1b4f7f;"></div>
+
+      <!-- 大きい作品番号 -->
+      <div class="split-left__index">02</div>
+
+      <!-- セクションごとに切り替わる情報 -->
+      <div class="split-info" id="splitInfo">
+        <p class="split-info__label" id="infoLabel">Overview</p>
+        <h2 class="split-info__heading" id="infoHeading">Exhibition<br>"Alice"</h2>
+        <p class="split-info__body" id="infoBody">
+          アリス展（仮）のコーポレートサイト。
+        </p>
+
+        <!-- メタ情報（最初のパネルのみ表示） -->
+        <dl class="split-meta" id="splitMeta">
+          <div class="split-meta__item">
+            <dt class="split-meta__key">Year</dt>
+            <dd class="split-meta__val">2026</dd>
+          </div>
+          <div class="split-meta__item">
+            <dt class="split-meta__key">Role</dt>
+            <dd class="split-meta__val">Design / Planning</dd>
+          </div>
+          <div class="split-meta__item">
+            <dt class="split-meta__key">Tech</dt>
+            <dd class="split-meta__val">Photopea</dd>
+          </div>
+          <div class="split-meta__item">
+            <dt class="split-meta__key">Color</dt>
+            <dd class="split-meta__val">maincolor #1b4f7f くすみブルー</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- セクションドット -->
+      <div class="split-dots" id="splitDots">
+        <!-- JSで生成 -->
+      </div>
+    </aside>
+
+    <!-- ===== RIGHT PANEL (スクロール) ===== -->
+    <div class="split-right" id="splitRight">
+
+      <!-- Panel 0: メインビジュアル（写真1枚） -->
+      <div class="split-panel"
+           data-index="0"
+           data-label="Overview"
+           data-heading="Exhibition<br>&quot;Alice&quot;"
+           data-body="アリス展（仮）のコーポレートサイト。"
+           data-show-meta="true">
+        <div style="position:absolute; inset:0; background-color:#C5D3E8;"></div>
+        <img class="split-panel__img" src="../images/work02.webp" alt="Main Visual" />
+      </div>
+
+      <!-- Panel 1: コンセプト（テキストのみ） -->
+      <div class="split-panel split-panel--list"
+           data-index="1"
+           data-label="Concept"
+           data-heading="世界観と<br>没入感の設計"
+           data-body="20〜30代をターゲットに、「物語への没入」をテーマにした。あえてキャラクターを出さず、モチーフと空間構成のみで世界観を構築しました。"
+           style="background-color:#EEF3FA;">
+        <p class="split-panel__list-title">Concept &amp; Approach</p>
+        <ul class="split-tech-list">
+          <li>
+            <span class="split-tech-tag">Direction</span>
+            <span class="split-tech-desc">あえてキャラクターとしての「アリス」をビジュアルに登場させない手法を採用。ユーザー自身が物語の主人公として迷い込む感覚を演出しました。</span>
+          </li>
+          <li>
+            <span class="split-tech-tag">Color</span>
+            <span class="split-tech-desc">「くすみブルー」を基調に、トランプを象徴する赤・白・黒をアクセントとして配置。</span>
+          </li>
+          <li>
+            <span class="split-tech-tag">Typography</span>
+            <span class="split-tech-desc">不思議の国のアリスが持つ「文学的・幻想的」な雰囲気と、京セラ美術館の「レトロ・重厚」な空気感を表現</span>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /split-right -->
+  </div><!-- /split-wrap -->
+
+  <!-- ===== NEXT WORK ===== -->
+  <a href="work03.html" class="detail-next">
+    <div class="detail-next__content">
+      <span class="detail-next__label">Next Work</span>
+      <p class="detail-next__title">NAGITUJI<br>Bakery</p>
+    </div>
+    <span class="detail-next__arrow">→</span>
+  </a>
+
+  <script src="../work.js"></script>
+</body>
+</html>

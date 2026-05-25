@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YUKI HATTORI — Web Creator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">This site is the portfolio site of YUKI HATTORI</div>
+      <nav class="header-nav">
+        <a href="#works">Works</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="hero-label">Portfolio</p>
+      <h1 class="hero-name">
+        <span class="hero-name__last">HATTORI</span>
+      </h1>
+    </div>
+    <div class="hero-scroll">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== WORKS ========== -->
+  <section class="works" id="works">
+
+    <!-- フルスクリーン背景レイヤー（JS制御） -->
+    <div class="works-bg" id="worksBg" aria-hidden="true">
+      <div class="works-bg__layer" style="background-image:url(images/work01.webp)"></div>
+      <div class="works-bg__layer" style="background-image:url(images/work02.webp)"></div>
+      <div class="works-bg__layer" style="background-image:url(images/work03.webp)"></div>
+      <div class="works-bg__overlay"></div>
+    </div>
+
+    <div class="works-inner">
+      <div class="section-header">
+        <span class="section-number"></span>
+        <h2 class="section-title">Works</h2>
+      </div>
+
+      <ul class="works-list">
+        <li class="works-item" data-index="0">
+          <a href="data/work01.html" class="works-link">
+            <span class="works-num">01</span>
+            <span class="works-title-en">KYOTO FUMIN BANK</span>
+            <span class="works-title-ja">京都府民銀行</span>
+            <span class="works-tags">Design / Coding / Planning</span>
+            <span class="works-arrow">→</span>
+          </a>
+        </li>
+        <li class="works-item" data-index="1">
+          <a href="data/work02.html" class="works-link">
+            <span class="works-num">02</span>
+            <span class="works-title-en">EXHIBITION "ALICE"</span>
+            <span class="works-title-ja">アリス展(仮)</span>
+            <span class="works-tags">Design / Planning</span>
+            <span class="works-arrow">→</span>
+          </a>
+        </li>
+        <li class="works-item" data-index="2">
+          <a href="data/work03.html" class="works-link">
+            <span class="works-num">03</span>
+            <span class="works-title-en">NAGITUJI BAKERY</span>
+            <span class="works-title-ja">椥辻ベーカリー</span>
+            <span class="works-tags">Design / Vue.js / SPA</span>
+            <span class="works-arrow">→</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT & SKILLS ========== -->
+  <section class="about" id="about">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">About</h2>
+    </div>
+
+    <div class="about-grid">
+      <!-- LEFT: Profile -->
+      <div class="about-profile">
+        <div class="profile-badge">
+          <span class="badge-number">6.5</span>
+          <span class="badge-unit">年</span>
+          <span class="badge-label">製造業での実務経験</span>
+        </div>
+        <h3 class="profile-name">服部 悠輝</h3>
+        <p class="profile-subtitle">Hattori Yuki</p>
+        <p class="profile-bio">
+          2019年 京都府立工業高等学校卒業<br>
+          2019年 ユニチカ株式会社入社<br>
+          2025年 ユニチカ株式会社退社<br>
+        </p>
+        <div class="profile-links">
+          <a href="https://github.com/" target="_blank" class="link-item">GitHub →</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Skills -->
+      <div class="about-skills">
+        <div class="skill-group">
+          <h4 class="skill-group-title">Front-end &amp; Development</h4>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-name">HTML5</span>
+              <span class="skill-desc">基本的なマークアップとレイアウト調整</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">CSS3</span>
+              <span class="skill-desc">レスポンシブ設計</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-desc">AIツールを活用したコード実装</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">Vue.js</span>
+              <span class="skill-desc">コンポーネント設計 </span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">Vite / Git / GitHub</span>
+              <span class="skill-desc">Build &amp; Version Control</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">CMS &amp; Design</h4>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-name">WordPress</span>
+              <span class="skill-desc">導入・基本運用</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">Canva</span>
+              <span class="skill-desc">バナー制作・レイアウト</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">IT / ハードウェア</span>
+              <span class="skill-desc">PCキッティング・自作・簡単なトラブル対応</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">Business &amp; AI Literacy</h4>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <span class="skill-name">Office Suite</span>
+              <span class="skill-desc">Word / Excel / PowerPoint</span>
+            </li>
+            <li class="skill-item">
+              <span class="skill-name">AI Workflow</span>
+              <span class="skill-desc">Claude / Gemini — デバッグ・最適化・企画</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="contact-inner">
+      <p class="contact-lead">お気軽にご連絡ください。</p>
+      <form class="contact-form" action="https://formspree.io/f/mvzyajwz" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" required></textarea>
+        </div>
+        <button class="form-submit" type="submit">Send →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-name">YUKI HATTORI</span>
+      <div class="footer-links">
+        <a href="https://github.com/" target="_blank">GitHub</a>
+      </div>
+      <span class="footer-copy">© 2026 Yuki Hattori. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
