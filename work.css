@@ -260,6 +260,8 @@
 /* テクニカルリスト（白背景パネル） */
 .split-panel--list {
   background: #F5F4F2;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
   padding: 5rem 4rem;
 }
