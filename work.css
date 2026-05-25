@@ -252,6 +252,11 @@
 }
 
 
+/* work03: 画像を小さめに表示 */
+.work03 .split-panel__img {
+  width: 50%;
+}
+
 /* テクニカルリスト（白背景パネル） */
 .split-panel--list {
   background: #F5F4F2;
@@ -369,6 +374,41 @@
 }
 
 /* ===========================================
+   CONTACT CTA
+   =========================================== */
+.work-contact {
+  padding: 6rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.work-contact__lead {
+  font-family: var(--font-ja);
+  font-size: 0.88rem;
+  color: var(--color-sub);
+  letter-spacing: 0.05em;
+}
+
+.work-contact__link {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--color-ink);
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--color-ink);
+  padding-bottom: 0.15em;
+  transition: opacity var(--transition);
+}
+
+.work-contact__link:hover {
+  opacity: 0.45;
+}
+
+/* ===========================================
    RESPONSIVE
    =========================================== */
 @media (max-width: 900px) {
@@ -412,6 +452,10 @@
 
   .detail-back {
     left: 1.5rem;
+  }
+
+  .work-contact {
+    padding: 4rem 1.5rem;
   }
 
   .detail-next {
