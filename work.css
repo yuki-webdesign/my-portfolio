@@ -377,35 +377,50 @@
    CONTACT CTA
    =========================================== */
 .work-contact {
-  padding: 6rem 3rem;
+  background: var(--color-black);
+  padding: 4rem 3rem;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
-  text-align: center;
-  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .work-contact__lead {
-  font-family: var(--font-ja);
-  font-size: 0.88rem;
-  color: var(--color-sub);
-  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  display: block;
+  margin-bottom: 0.8rem;
 }
 
 .work-contact__link {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 300;
-  color: var(--color-ink);
-  letter-spacing: 0.06em;
-  border-bottom: 1px solid var(--color-ink);
-  padding-bottom: 0.15em;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
   transition: opacity var(--transition);
 }
 
 .work-contact__link:hover {
-  opacity: 0.45;
+  opacity: 0.6;
+}
+
+.work-contact__arrow {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.work-contact:hover .work-contact__arrow {
+  transform: translateX(12px);
+  color: #FFFFFF;
 }
 
 /* ===========================================
@@ -455,7 +470,7 @@
   }
 
   .work-contact {
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem;
   }
 
   .detail-next {
